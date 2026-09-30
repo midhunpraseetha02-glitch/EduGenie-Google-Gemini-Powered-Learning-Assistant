@@ -1,2 +1,525 @@
 Project-Demonstration
-Requirement Analysis Phase Functional Requirements: Student can type a topic or question App can explain the topic simply App can summarize the topic App can generate a multiple-choice quiz on the topic App displays results clearly on screen Non-Functional Requirements: Fast response time Simple, easy-to-use interface Works on both mobile and desktop browsers Tools & Technologies Required: Google Gemini API Google AI Studio (for development) GitHub (for version control and submission)
+# EduGenie: Google Gemini Powered Learning Assistant
+
+ ## Project – demonstration explains how a student interacts with the application from login through AI Demonstration
+
+ ### 1\. Introduction
+
+ The **Project Demonstration** phase presents the working prototype of **EduGenie: Google Gemini Powered Learning Assistant**. The demonstration explains how a student interacts with the application from login through AI-assisted learning, quiz generation, answer evaluation, and progress tracking.
+
+ The main purpose of the demonstration is to show that the implemented system satisfies the requirements defined during the analysis and design phases.
+
+---
+
+ ## 2\. Demonstration Objectives
+
+ The demonstration aims to:
+
+ - Show the complete working flow of EduGenie.
+- Demonstrate student registration and authentication.
+- Demonstrate interaction with the Gemini-powered AI Tutor.
+- Show study-material summarization.
+- Demonstrate automatic quiz generation.
+- Show answer evaluation and feedback.
+- Display learning history and progress.
+- Demonstrate error handling and system usability.
+
+---
+
+ # 3\. Demonstration Flow
+
+ The complete demonstration follows this sequence:
+
+```
+┌──────────────────────┐
+│   Launch EduGenie    │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│    Login/Register    │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│   Student Dashboard  │
+└──────────┬───────────┘
+           ↓
+   ┌───────┼────────┐
+   ↓       ↓        ↓
+ AI Tutor Summary  Quiz
+   │       │        │
+   └───────┼────────┘
+           ↓
+┌──────────────────────┐
+│  Gemini AI Processing│
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│  Result / Feedback   │
+└──────────┬───────────┘
+           ↓
+┌──────────────────────┐
+│ History & Progress   │
+└──────────────────────┘
+```
+
+---
+
+ # 4\. Home Page Demonstration
+
+ When EduGenie is launched, the home page is displayed.
+
+ The page contains:
+
+ - EduGenie title/logo
+- Project introduction
+- Login button
+- Registration button
+- Feature information
+- Navigation options
+
+ ### Demonstration
+
+ The presenter opens the application and explains that EduGenie is an AI-powered learning assistant designed to help students learn interactively.
+
+---
+
+ # 5\. Registration Demonstration
+
+ A new student can register by entering the required details.
+
+ ### Example
+
+```
+Name     : Student
+Email    : student@example.com
+Password : ********
+```
+
+ After submitting the form:
+
+```
+Registration
+      ↓
+Input Validation
+      ↓
+Account Creation
+      ↓
+Registration Successful
+      ↓
+Login
+```
+
+ The system displays a confirmation message after successful registration.
+
+---
+
+ # 6\. Login Demonstration
+
+ The student enters their registered credentials.
+
+```
+Email    : student@example.com
+Password : ********
+```
+
+ The authentication system validates the credentials.
+
+ ### Expected Result
+
+```
+Valid Credentials
+       ↓
+Authentication Successful
+       ↓
+Student Dashboard
+```
+
+ If invalid credentials are entered, the system displays an appropriate error message.
+
+---
+
+ # 7\. Student Dashboard Demonstration
+
+ After login, the student is redirected to the dashboard.
+
+ Example:
+
+```
+┌────────────────────────────────────────┐
+│              EDUGENIE                  │
+├────────────────────────────────────────┤
+│                                        │
+│  [ AI Tutor ]       [ Summarizer ]     │
+│                                        │
+│  [ Quiz Generator ] [ Evaluation ]    │
+│                                        │
+│  [ History ]         [ Progress ]      │
+│                                        │
+└────────────────────────────────────────┘
+```
+
+ The dashboard provides access to all major features.
+
+---
+
+ # 8\. AI Tutor Demonstration
+
+ The AI Tutor is the main feature of EduGenie.
+
+ The student enters an academic question.
+
+ ### Example Input
+
+```
+Explain object-oriented programming in simple terms.
+```
+
+ The system processes the request:
+
+```
+Student Question
+       ↓
+Frontend
+       ↓
+Backend
+       ↓
+Gemini API
+       ↓
+AI Generated Response
+       ↓
+Frontend
+       ↓
+Student
+```
+
+ ### Expected Result
+
+ The student receives a clear educational explanation.
+
+ The student can continue the conversation by asking follow-up questions.
+
+ ### Example
+
+```
+Student:
+What is inheritance?
+
+EduGenie:
+[Explanation of inheritance]
+
+Student:
+Can you give me a Java example?
+
+EduGenie:
+[Java example and explanation]
+```
+
+---
+
+ # 9\. Study Material Summarization Demonstration
+
+ The student selects **Summarizer** and provides learning material.
+
+ ### Example
+
+```
+Input:
+A chapter about Database Management Systems.
+```
+
+ The student selects **Summarize**.
+
+ The system processes the content using the AI service.
+
+ ### Output
+
+```
+Summary
+
+• Main concepts
+• Important definitions
+• Key points
+• Important terms
+```
+
+ This feature demonstrates how EduGenie can assist students with revision.
+
+---
+
+ # 10\. Quiz Generator Demonstration
+
+ The student selects **Quiz Generator**.
+
+ ### Input
+
+```
+Subject       : Computer Science
+Topic         : Data Structures
+Difficulty    : Medium
+Questions     : 5
+```
+
+ The system sends the request to the backend and generates the quiz.
+
+ ### Example
+
+```
+Question 1:
+
+Which data structure follows the FIFO principle?
+
+A. Stack
+B. Queue
+C. Tree
+D. Graph
+```
+
+ The student selects an answer and proceeds through the quiz.
+
+---
+
+ # 11\. Quiz Submission Demonstration
+
+ After answering all questions, the student selects **Submit**.
+
+ The system evaluates the responses.
+
+ ### Example Result
+
+```
+Quiz Result
+
+Total Questions : 5
+Correct Answers : 4
+Incorrect       : 1
+Score           : 80%
+```
+
+ The application can also provide explanations for incorrect answers.
+
+---
+
+ # 12\. Answer Evaluation Demonstration
+
+ The student can submit an answer for evaluation.
+
+ ### Example
+
+```
+Question:
+What is inheritance in Java?
+
+Student Answer:
+Inheritance allows one class to acquire
+properties and methods of another class.
+```
+
+ EduGenie evaluates the response and provides feedback.
+
+ Example:
+
+```
+Evaluation:
+The answer correctly describes the basic
+concept of inheritance.
+
+Feedback:
+Include the terms "superclass" and "subclass"
+for a more complete explanation.
+```
+
+---
+
+ # 13\. Learning History Demonstration
+
+ The student selects **Learning History**.
+
+ The system displays previous learning activities.
+
+```
+┌───────────────────────────────────────────┐
+│             Learning History              │
+├────────────┬─────────────────┬────────────┤
+│ Date       │ Topic           │ Activity   │
+├────────────┼─────────────────┼────────────┤
+│ 30/09/2026 │ Data Structures │ Quiz       │
+│ 30/09/2026 │ Java            │ AI Tutor   │
+│ 29/09/2026 │ DBMS            │ Summary    │
+└────────────┴─────────────────┴────────────┘
+```
+
+ This allows students to revisit previous learning activities.
+
+---
+
+ # 14\. Progress Dashboard Demonstration
+
+ The Progress section provides an overview of the student's learning activity.
+
+ Example:
+
+```
+┌──────────────────────────────┐
+│       Learning Progress      │
+├──────────────────────────────┤
+│ Topics Studied      : 12     │
+│ Quizzes Completed   : 8      │
+│ Questions Asked     : 35     │
+│ Average Score       : 82%    │
+└──────────────────────────────┘
+```
+
+ Charts or progress bars can be used in the actual interface to make the information easier to understand.
+
+---
+
+ # 15\. Error Handling Demonstration
+
+ The system is also demonstrated under failure conditions.
+
+ ### Example: Gemini API Unavailable
+
+```
+Student Question
+       ↓
+Gemini Request
+       ↓
+Service Unavailable
+       ↓
+EduGenie Error Handler
+       ↓
+"Unable to process your request.
+Please try again later."
+```
+
+ The application should display a user-friendly message without exposing API keys, stack traces, or internal server information.
+
+---
+
+ # 16\. Logout Demonstration
+
+ After completing the learning session, the student selects **Logout**.
+
+```
+Student
+   ↓
+Logout
+   ↓
+Session Terminated
+   ↓
+Login/Home Page
+```
+
+ The system prevents access to protected student pages after logout unless the user authenticates again.
+
+---
+
+ # 17\. Complete Demonstration Scenario
+
+ A complete project demonstration can be performed using the following scenario:
+
+ ### Step 1
+
+ Open EduGenie.
+
+ ### Step 2
+
+ Register a student account.
+
+ ### Step 3
+
+ Log in and open the dashboard.
+
+ ### Step 4
+
+ Open **AI Tutor** and ask:
+
+ > "Explain machine learning in simple terms."
+
+ ### Step 5
+
+ Ask a follow-up question.
+
+ ### Step 6
+
+ Open **Summarizer** and submit study material.
+
+ ### Step 7
+
+ Generate a five-question quiz about the same topic.
+
+ ### Step 8
+
+ Answer the questions and submit the quiz.
+
+ ### Step 9
+
+ Display the score and feedback.
+
+ ### Step 10
+
+ Open **Learning History**.
+
+ ### Step 11
+
+ Open **Progress Dashboard**.
+
+ ### Step 12
+
+ Log out of the application.
+
+---
+
+ # 18\. Demonstration Screenshots
+
+ The final project report should ideally include screenshots of the actual implemented application.
+
+ Recommended screenshots:
+
+ 1. **Home Page**
+2. **Registration Page**
+3. **Login Page**
+4. **Student Dashboard**
+5. **AI Tutor Interface**
+6. **Gemini-Generated Response**
+7. **Study Material Summarizer**
+8. **Quiz Generator**
+9. **Quiz Questions**
+10. **Quiz Result**
+11. **Answer Evaluation**
+12. **Learning History**
+13. **Progress Dashboard**
+14. **Error Handling**
+15. **Logout/Home Page**
+
+ Each screenshot can be accompanied by a short description explaining what is being demonstrated.
+
+---
+
+ # 19\. Demonstration Results
+
+ The demonstration verifies the major functions of EduGenie:
+
+ | Feature | Demonstration Result |
+| --- | --- |
+| Registration | Successfully demonstrated |
+| Login | Successfully demonstrated |
+| AI Tutor | Gemini response displayed |
+| Follow-up Questions | Conversational interaction demonstrated |
+| Summarization | Summary generated |
+| Quiz Generation | Questions generated |
+| Answer Evaluation | Feedback displayed |
+| Learning History | Previous activities displayed |
+| Progress Tracking | Learning statistics displayed |
+| Error Handling | User-friendly error displayed |
+| Logout | Session terminated |
+
+The final status should reflect the actual results obtained from the implemented system.
+
+---
+
+ # 20\. Project Demonstration Conclusion
+
+ The demonstration of **EduGenie: Google Gemini Powered Learning Assistant** presents the complete workflow of the proposed AI-powered learning platform. It shows how a student can register, interact with the Gemini-powered AI Tutor, summarize learning materials, generate and complete quizzes, receive feedback, and monitor learning activity.
+
+ The demonstration confirms the integration of the major system components and provides a practical view of how EduGenie can function as an interactive learning assistant.
