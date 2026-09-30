@@ -1,1 +1,571 @@
 Project-Documentation
+# EduGenie: Google Gemini Powered Learning Assistant
+
+ # Project – Documentation
+
+ ## 1\. Introduction
+
+ **EduGenie: Google Gemini Powered Learning Assistant** is an AI-based educational application designed to support students in their learning activities. The system integrates Google's Gemini generative AI capabilities to provide interactive academic assistance.
+
+ EduGenie allows students to ask questions, receive explanations, summarize study materials, generate quizzes, evaluate answers, and review their learning activity through a single platform.
+
+---
+
+ # 2\. Project Objectives
+
+ The main objectives of EduGenie are:
+
+ - To develop an AI-powered virtual learning assistant.
+- To provide instant academic assistance.
+- To explain complex concepts in simple language.
+- To summarize lengthy study materials.
+- To generate topic-based quizzes.
+- To evaluate student answers and provide feedback.
+- To maintain learning history.
+- To support self-paced and interactive learning.
+
+---
+
+ # 3\. Problem Statement
+
+ Students often depend on multiple resources to understand concepts, revise study materials, practice questions, and evaluate their knowledge. This can make learning less organized and time-consuming.
+
+ EduGenie addresses this problem by providing multiple AI-powered learning functions within a single application.
+
+---
+
+ # 4\. Proposed Solution
+
+ EduGenie provides an integrated learning environment consisting of:
+
+```
+                 EDUGENIE
+                     │
+       ┌─────────────┼─────────────┐
+       ↓             ↓             ↓
+    AI Tutor     Summarizer    Quiz Generator
+       │             │             │
+       └─────────────┼─────────────┘
+                     ↓
+              Answer Evaluation
+                     ↓
+              Learning History
+                     ↓
+              Progress Tracking
+```
+
+ The application uses a backend service to communicate securely with Gemini and the database.
+
+---
+
+ # 5. System Architecture
+
+```
+┌───────────────────────┐
+│       Student         │
+└───────────┬───────────┘
+            ↓
+┌───────────────────────┐
+│    EduGenie Frontend  │
+│  Web/Mobile Interface │
+└───────────┬───────────┘
+            ↓
+┌───────────────────────┐
+│     Backend API       │
+│ Business Logic/Auth   │
+└───────┬────────┬──────┘
+        │        │
+        ↓        ↓
+┌────────────┐ ┌──────────────┐
+│  Database  │ │  Gemini API  │
+└────────────┘ └──────┬───────┘
+                      ↓
+               AI Generated Result
+                      ↓
+                 Student UI
+```
+
+---
+
+ # 6\. Technology Stack
+
+ | Component | Technology |
+| --- | --- |
+| Frontend | HTML, CSS, JavaScript / React |
+| Backend | Python Flask/FastAPI or Node.js |
+| AI | Google Gemini API |
+| Database | Firebase / MySQL / MongoDB |
+| Authentication | Firebase Authentication / Backend Authentication |
+| API | REST API |
+| Development Tool | Visual Studio Code |
+| Version Control | Git |
+| Deployment | Cloud hosting platform |
+
+---
+
+ # 7\. Functional Modules
+
+ ## 7.1 Authentication Module
+
+ Provides:
+
+ - Registration
+- Login
+- Logout
+- User authentication
+- Session management
+
+ ## 7.2 AI Tutor Module
+
+ Allows students to ask academic questions and receive AI-generated explanations.
+
+ Example:
+
+```
+Student:
+Explain photosynthesis in simple terms.
+
+        ↓
+
+EduGenie + Gemini
+
+        ↓
+
+Student-friendly explanation
+```
+
+ ## 7.3 Summarization Module
+
+ Processes study material and produces:
+
+ - Summary
+- Important points
+- Key concepts
+- Key terms
+
+ ## 7.4 Quiz Generator
+
+ Generates questions based on:
+
+ - Subject
+- Topic
+- Difficulty
+- Number of questions
+
+ ## 7.5 Answer Evaluation
+
+ Evaluates student responses and provides:
+
+ - Score
+- Correct/incorrect information
+- Explanations
+- Feedback
+
+ ## 7.6 Learning History
+
+ Stores relevant student activity such as:
+
+ - Questions
+- AI responses
+- Quiz attempts
+- Scores
+- Topics
+
+ ## 7.7 Progress Tracking
+
+ Displays learning statistics and activity.
+
+ Example:
+
+```
+Topics Studied      : 15
+Quizzes Completed   : 10
+Average Score       : 82%
+Questions Asked     : 45
+```
+
+---
+
+ # 8\. Database Documentation
+
+ ## User
+
+ | Field | Description |
+| --- | --- |
+| user\_id | Unique user identifier |
+| name | Student name |
+| email | Student email |
+| created\_at | Account creation date |
+
+## Chat History
+
+ | Field | Description |
+| --- | --- |
+| chat\_id | Unique chat identifier |
+| user\_id | User reference |
+| question | Student question |
+| response | AI response |
+| timestamp | Interaction time |
+
+## Quiz
+
+ | Field | Description |
+| --- | --- |
+| quiz\_id | Unique quiz identifier |
+| user\_id | User reference |
+| topic | Quiz topic |
+| score | Quiz score |
+| created\_at | Creation date |
+
+## Progress
+
+ | Field | Description |
+| --- | --- |
+| progress\_id | Unique progress identifier |
+| user\_id | User reference |
+| topic | Learning topic |
+| score | Performance score |
+| status | Learning status |
+
+---
+
+ # 9\. API Documentation
+
+ A possible REST API structure is:
+
+ | Method | Endpoint | Description |
+| --- | --- | --- |
+| POST | `/api/register` | Register student |
+| POST | `/api/login` | Login student |
+| POST | `/api/chat` | Send question to AI |
+| POST | `/api/summarize` | Summarize material |
+| POST | `/api/quiz` | Generate quiz |
+| POST | `/api/evaluate` | Evaluate answers |
+| GET | `/api/history` | Get learning history |
+| GET | `/api/progress` | Get learning progress |
+| POST | `/api/logout` | Logout |
+
+The exact API routes may vary according to the selected backend framework.
+
+---
+
+ # 10\. Gemini Integration
+
+ The Gemini API is integrated through the backend.
+
+```
+Student Question
+       ↓
+Frontend
+       ↓
+Backend
+       ↓
+Prompt Construction
+       ↓
+Gemini API
+       ↓
+AI Response
+       ↓
+Backend
+       ↓
+Frontend
+       ↓
+Student
+```
+
+ The Gemini API credential should be stored securely on the server and should not be exposed in client-side code.
+
+---
+
+ # 11\. User Interface Documentation
+
+ The application contains the following major screens:
+
+ ### Home Page
+
+ Provides an introduction to EduGenie and access to login/registration.
+
+ ### Login Page
+
+ Allows registered students to authenticate.
+
+ ### Dashboard
+
+ Provides access to all major learning features.
+
+ ### AI Tutor
+
+ Provides a conversational interface for asking academic questions.
+
+ ### Summarizer
+
+ Allows students to submit study material for summarization.
+
+ ### Quiz Generator
+
+ Allows students to select a topic and generate questions.
+
+ ### Result Page
+
+ Displays quiz scores and feedback.
+
+ ### History Page
+
+ Displays previous learning interactions.
+
+ ### Progress Page
+
+ Displays learning activity and performance information.
+
+---
+
+ # 12\. Project Development Process
+
+ The project follows a structured development process:
+
+```
+Brainstorming
+      ↓
+Requirement Analysis
+      ↓
+Project Planning
+      ↓
+System Design
+      ↓
+Development
+      ↓
+Gemini Integration
+      ↓
+Testing
+      ↓
+Demonstration
+      ↓
+Documentation
+      ↓
+Deployment
+```
+
+---
+
+ # 13\. Testing Documentation
+
+ Testing includes:
+
+ - Unit testing
+- Integration testing
+- Functional testing
+- Gemini API testing
+- Database testing
+- Authentication testing
+- UI testing
+- Security testing
+- Performance testing
+- User acceptance testing
+
+ ### Sample Test Case
+
+ | Test ID | Scenario | Expected Result |
+| --- | --- | --- |
+| TC01 | Student enters valid question | AI response displayed |
+| TC02 | Empty question submitted | Validation message displayed |
+| TC03 | Quiz generated | Questions displayed |
+| TC04 | Quiz submitted | Score calculated |
+| TC05 | User logs out | Session terminated |
+| TC06 | Gemini unavailable | Friendly error displayed |
+
+---
+
+ # 14\. Security Documentation
+
+ Security measures include:
+
+ - Secure authentication
+- Input validation
+- Authorization checks
+- Protected database access
+- Secure session management
+- API-key protection
+- HTTPS in production
+- Appropriate error handling
+
+ Sensitive credentials should never be hard-coded into publicly accessible frontend code.
+
+---
+
+ # 15\. Installation and Setup
+
+ A general development setup is:
+
+ ### Step 1 – Install Required Software
+
+ Install:
+
+ - Programming language/runtime
+- Visual Studio Code
+- Database tools
+- Git
+- Supported web browser
+
+ ### Step 2 – Create Project
+
+ Create the frontend and backend project structure.
+
+ ### Step 3 – Configure Database
+
+ Create the required database and tables/collections.
+
+ ### Step 4 – Configure Gemini
+
+ Create the required Gemini API configuration and store credentials securely as environment variables or through a secret-management system.
+
+ ### Step 5 – Configure Backend
+
+ Set up:
+
+ - Authentication
+- API routes
+- Database connection
+- Gemini service
+- Error handling
+
+ ### Step 6 – Configure Frontend
+
+ Connect the UI to the backend APIs.
+
+ ### Step 7 – Run Tests
+
+ Test all major features before deployment.
+
+---
+
+ # 16\. Suggested Project Structure
+
+ For a Python-based implementation, the project can be organized as:
+
+```
+EduGenie/
+│
+├── frontend/
+│   ├── index.html
+│   ├── login.html
+│   ├── dashboard.html
+│   ├── tutor.html
+│   ├── quiz.html
+│   ├── style.css
+│   └── script.js
+│
+├── backend/
+│   ├── app.py
+│   ├── routes/
+│   ├── services/
+│   ├── models/
+│   └── utils/
+│
+├── database/
+│   └── schema/
+│
+├── tests/
+│   ├── test_auth.py
+│   ├── test_tutor.py
+│   └── test_quiz.py
+│
+├── .env
+├── requirements.txt
+└── README.md
+```
+
+ The exact structure can be modified according to the chosen framework.
+
+---
+
+ # 17\. Deployment Documentation
+
+ Before deployment:
+
+ 1. Configure production environment variables.
+2. Configure the production database.
+3. Deploy the backend.
+4. Deploy the frontend.
+5. Configure API access.
+6. Enable HTTPS.
+7. Test authentication.
+8. Test Gemini interaction.
+9. Test database operations.
+10. Perform final acceptance testing.
+
+---
+
+ # 18\. User Manual
+
+ ### How to Use EduGenie
+
+ **Step 1:** Open the EduGenie application.
+
+ **Step 2:** Register a new account or log in.
+
+ **Step 3:** Open the dashboard.
+
+ **Step 4:** Select **AI Tutor** to ask an academic question.
+
+ **Step 5:** Select **Summarizer** to summarize study material.
+
+ **Step 6:** Select **Quiz Generator** to create practice questions.
+
+ **Step 7:** Submit answers and view the result.
+
+ **Step 8:** Open **History** to review previous activities.
+
+ **Step 9:** Open **Progress** to view learning statistics.
+
+ **Step 10:** Log out after completing the session.
+
+---
+
+ # 19. Future Enhancements
+
+ Future versions can include:
+
+ - Voice-based AI tutoring
+- Multilingual support
+- Image-based question solving
+- PDF/document-based learning
+- Adaptive quizzes
+- AI-generated flashcards
+- Personalized study schedules
+- Teacher dashboard
+- Mobile application
+- Advanced learning analytics
+
+---
+
+ # 20\. Project Deliverables
+
+ The final project documentation should contain:
+
+ - Project abstract
+- Introduction
+- Problem statement
+- Objectives
+- Brainstorming and ideation
+- Requirement analysis
+- Project planning
+- System design
+- Architecture
+- Database design
+- Implementation
+- Testing
+- Demonstration
+- Results
+- Future enhancements
+- Conclusion
+- References
+- User manual
+- Source code
+
+---
+
+ # 21\. Conclusion
+
+ **EduGenie: Google Gemini Powered Learning Assistant** demonstrates how generative AI can be integrated into an educational application to provide interactive learning support. The system combines AI tutoring, summarization, quiz generation, answer evaluation, learning history, and progress tracking within a unified platform.
+
+ The documentation provides a complete reference for understanding the project's **requirements, design, development, testing, deployment, and usage**, and can serve as the foundation for the final project report and presentation.
