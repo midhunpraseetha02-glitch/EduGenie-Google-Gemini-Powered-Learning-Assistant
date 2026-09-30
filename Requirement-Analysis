@@ -1,1 +1,431 @@
 Requirement-Analysis
+# EduGenie: Google Gemini Powered Learning Assistant
+
+ ## Project – Requirement Analysis
+
+ ### 1\. Introduction
+
+ Requirement analysis is an important phase in the development of **EduGenie: Google Gemini Powered Learning Assistant**. It identifies the functional and technical requirements needed to develop an AI-powered educational platform.
+
+ EduGenie is designed to provide students with interactive learning assistance using **Google Gemini**, allowing them to ask questions, understand concepts, summarize study materials, generate quizzes, and receive feedback.
+
+---
+
+ ## 2\. Purpose of the System
+
+ The purpose of EduGenie is to provide a centralized AI-powered learning platform that can assist students with their academic activities.
+
+ The system aims to:
+
+ - Provide instant educational assistance.
+- Explain complex concepts in understandable language.
+- Generate personalized learning content.
+- Help students practice through quizzes.
+- Evaluate answers and provide feedback.
+- Maintain learning history.
+- Support self-paced learning.
+
+---
+
+ ## 3\. Stakeholders
+
+ The major stakeholders of the system are:
+
+ - **Students** – Primary users who interact with the AI learning assistant.
+- **Teachers/Educators** – Potential users for reviewing learning activities and providing educational guidance.
+- **System Administrator** – Manages users, system configuration, and application resources.
+- **Project Developer** – Designs, develops, tests, and maintains the application.
+
+---
+
+ # 4\. Functional Requirements
+
+ Functional requirements describe what the system should do.
+
+ ### 4.1 User Registration
+
+ The system shall allow new students to create an account.
+
+ Required information may include:
+
+ - Name
+- Email address
+- Password
+- Basic profile information
+
+ The system should validate the entered information before creating the account.
+
+ ### 4.2 User Login
+
+ Registered students shall be able to log in using their authentication credentials.
+
+ The system shall:
+
+ - Verify credentials.
+- Create an authenticated session.
+- Redirect the student to the dashboard.
+- Display an appropriate error for invalid credentials.
+
+ ### 4.3 Student Dashboard
+
+ After login, the student shall be provided with a dashboard containing access to:
+
+ - AI Tutor
+- Study Material Summarizer
+- Quiz Generator
+- Answer Evaluation
+- Learning History
+- Progress Tracking
+
+ ### 4.4 AI Tutor
+
+ The system shall allow students to enter questions using natural language.
+
+ Example:
+
+```
+Student:
+"Explain object-oriented programming with an example."
+```
+
+ The system sends the request to the backend, which communicates with Gemini and returns the generated response.
+
+ ### 4.5 Conversational Interaction
+
+ The system shall support follow-up questions so students can continue discussing a topic.
+
+ Example:
+
+```
+Student:
+"What is inheritance?"
+
+EduGenie:
+[Explanation]
+
+Student:
+"Can you give me a Java example?"
+```
+
+ ### 4.6 Study Material Summarization
+
+ The system shall allow students to submit study material and request a summary.
+
+ The output may contain:
+
+ - Main points
+- Important concepts
+- Key terms
+- Short summary
+
+ ### 4.7 Quiz Generation
+
+ The system shall generate quizzes based on the student's selected topic.
+
+ The student may specify:
+
+ - Subject
+- Topic
+- Number of questions
+- Difficulty level
+- Question type
+
+ ### 4.8 Answer Evaluation
+
+ The system shall evaluate submitted answers and provide feedback.
+
+ The result may include:
+
+ - Correct/incorrect status
+- Score
+- Explanation
+- Suggestions for improvement
+
+ ### 4.9 Learning History
+
+ The system shall maintain relevant learning activity such as:
+
+ - Previous questions
+- AI responses
+- Quiz attempts
+- Scores
+- Topics studied
+
+ Students should be able to review their previous activities.
+
+ ### 4.10 Progress Tracking
+
+ The system shall display learning-related statistics such as:
+
+```
+Topics Studied       : 15
+Quizzes Completed    : 10
+Average Score        : 82%
+Questions Asked      : 45
+```
+
+ ### 4.11 Error Handling
+
+ The system shall provide appropriate messages when:
+
+ - Input is empty.
+- Authentication fails.
+- The Gemini service is unavailable.
+- A database operation fails.
+- The request cannot be processed.
+
+ Technical information such as API keys or server stack traces should not be exposed to users.
+
+ ### 4.12 Logout
+
+ The system shall allow authenticated users to securely log out of the application.
+
+---
+
+ # 5\. Non-Functional Requirements
+
+ Non-functional requirements describe how the system should operate.
+
+ ### 5.1 Performance
+
+ - Pages should load efficiently.
+- User requests should be processed without unnecessary delay.
+- Database queries should be optimized.
+- The application should handle multiple user requests appropriately.
+
+ ### 5.2 Security
+
+ The system should:
+
+ - Protect user credentials.
+- Use secure authentication.
+- Validate user input.
+- Protect database access.
+- Keep Gemini API credentials on the server side.
+- Prevent unauthorized access to user information.
+
+ ### 5.3 Usability
+
+ The interface should be:
+
+ - Simple
+- Intuitive
+- Student-friendly
+- Responsive
+- Easy to navigate
+
+ ### 5.4 Reliability
+
+ The system should continue operating correctly under normal conditions and provide appropriate error handling when external services become unavailable.
+
+ ### 5.5 Scalability
+
+ The architecture should allow additional users and features to be added without requiring a complete redesign.
+
+ ### 5.6 Maintainability
+
+ The source code should be modular and well organized so that individual components can be updated or replaced easily.
+
+ ### 5.7 Compatibility
+
+ The web application should work with commonly used modern browsers and different screen sizes.
+
+---
+
+ # 6\. Hardware Requirements
+
+ A basic development environment may require:
+
+ | Component | Minimum Requirement |
+| --- | --- |
+| Processor | Intel Core i3 / equivalent |
+| RAM | 4 GB or above |
+| Storage | 10 GB available space |
+| Internet | Required for Gemini API |
+| Display | 1366 × 768 or above |
+
+For development, **8 GB or more RAM** is recommended for smoother operation.
+
+---
+
+ # 7\. Software Requirements
+
+ | Software | Requirement |
+| --- | --- |
+| Operating System | Windows / Linux / macOS |
+| Frontend | HTML, CSS, JavaScript or React |
+| Backend | Python Flask/FastAPI or Node.js |
+| AI Service | Google Gemini API |
+| Database | Firebase / MySQL / MongoDB |
+| IDE | Visual Studio Code |
+| Browser | Chrome / Edge / Firefox |
+| Version Control | Git |
+
+---
+
+ # 8\. AI Requirements
+
+ The AI component is responsible for understanding and generating educational responses.
+
+ The system should support:
+
+ - Natural-language questions
+- Contextual explanations
+- Summarization
+- Question generation
+- Answer feedback
+- Follow-up interactions
+
+ The application should also handle AI-service errors and avoid presenting generated content as guaranteed factual information when verification is necessary.
+
+---
+
+ # 9\. Data Requirements
+
+ The system may store the following information:
+
+ ### User Data
+
+ - User ID
+- Name
+- Email
+- Authentication information
+
+ ### Learning Data
+
+ - Questions
+- AI responses
+- Topics
+- Quiz questions
+- Quiz results
+- Learning activity
+
+ ### Progress Data
+
+ - Scores
+- Completed quizzes
+- Topics studied
+- Activity history
+
+ Sensitive authentication information should be stored and managed using appropriate security practices.
+
+---
+
+ # 10\. Use-Case Requirements
+
+ ### Main Actors
+
+```
+Student
+   │
+   ├── Register
+   ├── Login
+   ├── Ask AI Question
+   ├── View AI Response
+   ├── Summarize Material
+   ├── Generate Quiz
+   ├── Submit Answers
+   ├── View Feedback
+   ├── View History
+   ├── View Progress
+   └── Logout
+```
+
+ ### Administrator
+
+```
+Administrator
+   │
+   ├── Manage Users
+   ├── Monitor System
+   ├── Manage Application Settings
+   └── Review System Activity
+```
+
+---
+
+ # 11\. System Architecture Requirements
+
+ The system should follow a modular architecture:
+
+```
+┌─────────────────────────┐
+│      Student UI         │
+│   Web / Mobile Client   │
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│      Backend API        │
+│ Authentication / Logic  │
+└───────┬─────────┬───────┘
+        │         │
+        ▼         ▼
+┌────────────┐ ┌──────────────┐
+│  Database  │ │ Gemini API   │
+└────────────┘ └──────┬───────┘
+                      │
+                      ▼
+                AI Response
+                      │
+                      ▼
+                 Student UI
+```
+
+---
+
+ # 12\. Requirement Priority
+
+ | Requirement | Priority |
+| --- | --- |
+| User Authentication | High |
+| AI Tutor | High |
+| Gemini Integration | High |
+| Quiz Generation | High |
+| Answer Evaluation | High |
+| Study Summarization | High |
+| Learning History | Medium |
+| Progress Tracking | Medium |
+| Study Planner | Medium |
+| Voice Assistant | Low |
+| Mobile Application | Future |
+
+---
+
+ # 13\. Constraints
+
+ The project may have the following constraints:
+
+ - Internet connectivity is required for cloud-based AI services.
+- Gemini API availability and applicable usage limits can affect AI functionality.
+- AI-generated responses may occasionally require verification.
+- Application performance depends partly on network and external API response times.
+- Database and authentication services require proper configuration.
+
+---
+
+ # 14\. Expected Requirements Outcome
+
+ After completing the requirement analysis, the following core system requirements are established:
+
+```
+User Authentication
+        ↓
+Student Dashboard
+        ↓
+AI Tutor ←→ Gemini API
+        ↓
+Summarization
+        ↓
+Quiz Generation
+        ↓
+Answer Evaluation
+        ↓
+Learning History
+        ↓
+Progress Tracking
+```
+
+ ## Conclusion
+
+ The requirement analysis defines the functional, non-functional, hardware, software, AI, data, security, and system requirements for **EduGenie: Google Gemini Powered Learning Assistant**. These requirements provide a clear foundation for the subsequent **system design, development, testing, and deployment** phases of the project.
