@@ -1,2 +1,349 @@
 Project-Development
-Project Planning Phase Timeline: Week 1: Requirement gathering and design Week 2: Core development (Explain, Summarize, Quiz features) Week 3: Testing and bug fixes Week 4: Documentation and demo video Tools Used: Google AI Studio (development) GitHub (version control and submission) Google Gemini API (AI model) Approach: The project was planned in phases, starting with idea finalization, followed by requirement analysis, UI design, development using Google AI Studio, testing, and finally documentation and demo recording.
+Below is a ready-to-use **Project Development** section for the project **“EduGenie: Google Gemini Powered Learning Assistant.”**
+
+ # EduGenie: Google Gemini Powered Learning Assistant
+
+ ## 1\. Project Development
+
+ **EduGenie** is an AI-powered learning assistant designed to provide students with personalized academic support. The system uses **Google Gemini** to understand students' questions and generate contextual explanations, summaries, quizzes, and study guidance.
+
+ The application acts as a virtual tutor that students can interact with through a conversational interface. Instead of providing only predefined answers, EduGenie uses generative AI to produce responses according to the student's question and learning requirements.
+
+ ## 2\. Objectives
+
+ The main objectives of EduGenie are:
+
+ - To develop an intelligent virtual learning assistant.
+- To provide instant answers to students' academic questions.
+- To explain difficult concepts in simple language.
+- To generate summaries from learning materials.
+- To automatically create quizzes and practice questions.
+- To provide personalized study recommendations.
+- To help students learn through an interactive conversational interface.
+- To maintain learning history and monitor student progress.
+
+ ## 3\. Proposed System
+
+ The proposed system consists of a student interface, application server, database, and Google Gemini API.
+
+```
+                 ┌─────────────────────┐
+                 │       Student       │
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │   EduGenie UI      │
+                 │  Web Application   │
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │    Backend/API      │
+                 │     Server          │
+                 └───────┬─────┬───────┘
+                         │     │
+              ┌──────────┘     └──────────┐
+              ▼                           ▼
+     ┌─────────────────┐         ┌─────────────────┐
+     │ Google Gemini   │         │    Database     │
+     │      API        │         │ Users/History   │
+     └────────┬────────┘         └─────────────────┘
+              │
+              ▼
+     ┌─────────────────┐
+     │ AI Generated    │
+     │ Learning Result │
+     └────────┬────────┘
+              │
+              ▼
+          Student
+```
+
+ ## 4\. Major Modules
+
+ ### 4.1 User Authentication Module
+
+ This module allows students to create accounts and securely log in to EduGenie.
+
+ Functions include:
+
+ - Student registration
+- Login/logout
+- User profile management
+- Password management
+- Authentication and authorization
+
+ ### 4.2 AI Tutor Module
+
+ The AI Tutor is the central component of EduGenie.
+
+ Students can enter questions such as:
+
+ > "Explain photosynthesis in simple terms."
+
+ The question is sent to the backend, which communicates with Gemini. The generated explanation is then returned to the student.
+
+ The tutor can provide:
+
+ - Concept explanations
+- Step-by-step solutions
+- Examples
+- Definitions
+- Comparisons
+- Follow-up questions
+- Simplified explanations
+
+ ### 4.3 Study Material Summarization
+
+ Students can provide study content and request a summary.
+
+ For example:
+
+```
+Input:
+A long chapter or study material
+
+        ↓
+
+EduGenie + Gemini
+
+        ↓
+
+Output:
+• Important concepts
+• Key points
+• Short summary
+• Important terms
+```
+
+ This helps students review large amounts of information more efficiently.
+
+ ### 4.4 Quiz Generator
+
+ EduGenie can generate questions based on a selected subject or topic.
+
+ Example:
+
+```
+Topic: Data Structures
+Difficulty: Medium
+Number of Questions: 10
+
+        ↓
+
+Gemini
+
+        ↓
+
+MCQs + Answers + Explanations
+```
+
+ The generated quiz can contain:
+
+ - Multiple-choice questions
+- True/false questions
+- Short-answer questions
+- Difficulty levels
+- Correct answers
+- Explanations
+
+ ### 4.5 Answer Evaluation Module
+
+ Students can submit answers to questions. EduGenie analyzes the response and provides feedback.
+
+ The system can identify:
+
+ - Correctness
+- Missing concepts
+- Mistakes
+- Suggested improvements
+- Additional explanations
+
+ ### 4.6 Personalized Study Assistant
+
+ The system can use the student's learning activity to provide customized assistance.
+
+ For example:
+
+```
+Student Activity
+       ↓
+Topics studied
+       ↓
+Quiz performance
+       ↓
+Frequently asked questions
+       ↓
+Personalized recommendations
+```
+
+ Recommendations may include topics to revise, practice questions, or suggested study activities.
+
+ ### 4.7 Learning History Module
+
+ The system stores relevant learning activity so students can revisit previous interactions.
+
+ It may maintain:
+
+ - Questions asked
+- AI responses
+- Quiz results
+- Study topics
+- Performance history
+- Learning progress
+
+ ## 5\. Technology Stack
+
+ | Component | Suggested Technology |
+| --- | --- |
+| Frontend | HTML, CSS, JavaScript / React |
+| Backend | Python Flask / FastAPI |
+| AI Model | Google Gemini API |
+| Database | Firebase / MySQL / MongoDB |
+| Authentication | Firebase Authentication |
+| API Communication | REST API |
+| Development Environment | VS Code |
+| Deployment | Firebase / Render / Vercel |
+
+## 6\. Database Design
+
+ A basic database can contain the following tables/collections.
+
+ ### Users
+
+ | Field | Description |
+| --- | --- |
+| user\_id | Unique user identifier |
+| name | Student name |
+| email | Student email |
+| password/auth\_id | Authentication reference |
+| created\_at | Account creation date |
+
+### Chat History
+
+ | Field | Description |
+| --- | --- |
+| chat\_id | Unique chat identifier |
+| user\_id | Student identifier |
+| question | Student's question |
+| response | Gemini response |
+| timestamp | Date and time |
+
+### Quiz
+
+ | Field | Description |
+| --- | --- |
+| quiz\_id | Unique quiz identifier |
+| user\_id | Student identifier |
+| topic | Quiz topic |
+| questions | Generated questions |
+| score | Student score |
+| created\_at | Creation date |
+
+### Progress
+
+ | Field | Description |
+| --- | --- |
+| progress\_id | Unique identifier |
+| user\_id | Student identifier |
+| topic | Learning topic |
+| score | Performance score |
+| status | Learning status |
+
+## 7\. Gemini API Integration
+
+ The backend sends the student's request to Gemini with an appropriate prompt.
+
+ Conceptually:
+
+```
+Student Question
+      ↓
+Backend
+      ↓
+Create Prompt
+      ↓
+Gemini API
+      ↓
+AI Response
+      ↓
+Backend
+      ↓
+Student Interface
+```
+
+ A prompt can instruct the model to behave as an educational assistant, for example:
+
+```
+You are EduGenie, an educational learning assistant.
+Explain concepts clearly and accurately.
+Use simple language when appropriate.
+Provide examples and step-by-step explanations.
+If the question is ambiguous, ask for clarification.
+```
+
+ The backend should keep the **Gemini API key on the server side** rather than exposing it in frontend JavaScript.
+
+ ## 8\. User Workflow
+
+```
+Start
+  ↓
+Register / Login
+  ↓
+Student Dashboard
+  ↓
+Select Feature
+  ├── AI Tutor
+  ├── Summarizer
+  ├── Quiz Generator
+  ├── Answer Evaluation
+  └── Study Assistant
+          ↓
+      Enter Input
+          ↓
+      Backend Processing
+          ↓
+       Gemini API
+          ↓
+      Generate Result
+          ↓
+      Display Result
+          ↓
+      Save Learning History
+          ↓
+         End
+```
+
+ ## 9\. Advantages
+
+ - 24/7 learning assistance
+- Interactive conversational learning
+- Personalized explanations
+- Faster revision
+- Automated quiz generation
+- Immediate feedback
+- Reduced dependence on static learning resources
+- Supports self-paced learning
+
+ ## 10\. Future Enhancements
+
+ Future versions of EduGenie could include:
+
+ - Voice-based interaction
+- Multilingual learning support
+- Image-based question solving
+- PDF and document analysis
+- Automatic flashcard generation
+- Adaptive difficulty levels
+- Learning analytics dashboard
+- Teacher dashboard
+- Mobile application
+- Integration with online learning platforms
+
+ ## 11\. Expected Result
+
+ The completed EduGenie system will provide students with an interactive AI-based learning environment. Students will be able to ask academic questions, receive explanations, summarize study materials, generate quizzes, evaluate their answers, and obtain personalized study assistance through a single platform.
+
+ The project demonstrates how **generative AI can be integrated into an educational application to create an interactive and personalized learning experience**.
